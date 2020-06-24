@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="x_points_0">X Points: 0</string>
+    <string name="o_points_0">O Points: 0</string>
+    <string name="reset">reset</string>
+    <string name="logo">logo</string>
+    <string name="welcome">Welcome</string>
+    <string name="multi_player_mode">MultiPlayer Mode</string>
+    <string name="vs_android_mode">Vs Android Mode</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="notUsed">notUsed</string>
+    <string name="x_wins">X Wins:</string>
+    <string name="o_wins">O Wins:</string>
+    <string name="draw">Draw:</string>
+    <string name="ownerinfo">OwnerInfo</string>
+    <string name="settings_pop">Settings</string>
+    <string name="music">Music</string>
+    <string name="sound">Sound</string>
+    <string name="buttons">buttons</string>
+    <string name="resetboard">resetboard</string>
+    <string name="player_wins">Player Wins:</string>
+    <string name="android_wins">Android Wins:</string>
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="preetish_niket">Preetish Niket</string>
+    <string name="copyright_2020">CopyRight 2020</string>
+    <string name="developer_info">Developer Info</string>
+
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+</resources>
+
+
+
+
