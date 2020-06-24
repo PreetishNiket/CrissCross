@@ -50,11 +50,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         val buttonReset: Button = findViewById(R.id.reset)
         buttonReset.setOnClickListener {
+
             resetGame()
             mediaPlayer.start()
         }
+
         resetBoard.setOnClickListener {
             resetBoard()
+           //alertDialog
             mediaPlayer.start()
         }
     }
@@ -79,7 +82,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 view.text = "O"
                 mp.start()
-                view.setTextColor(Color.parseColor("#edf502"))
+                view.setTextColor(Color.parseColor("#fddb27ff"))
             }
         }
         roundcount++
