@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
-        val animDeep = AnimationUtils.loadAnimation(applicationContext, R.anim.deep)
+       // val animDeep = AnimationUtils.loadAnimation(applicationContext, R.anim.deep)
 
         mediaPlayer= MediaPlayer.create(this,R.raw.button_pop)
         mediaPlayer.isLooping=false
@@ -52,13 +52,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         val buttonReset: Button = findViewById(R.id.reset)
         buttonReset.setOnClickListener {
-            buttonReset.startAnimation(animDeep)
+
             resetGame()
             mediaPlayer.start()
         }
 
         resetBoard.setOnClickListener {
-            resetBoard.startAnimation(animDeep)
             resetBoard()
            //alertDialog
             mediaPlayer.start()

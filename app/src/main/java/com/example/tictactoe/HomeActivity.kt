@@ -15,31 +15,31 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         supportActionBar?.hide()
-        val animDeep = AnimationUtils.loadAnimation(applicationContext, R.anim.deep)
+        //val animDeep = AnimationUtils.loadAnimation(applicationContext, R.anim.deep)
         mediaPlayer= MediaPlayer.create(this,R.raw.button_pop)
         mediaPlayer.setVolume(10F,10F)
         mediaPlayer.isLooping=false
 
         multi.setOnClickListener {
-            multi.startAnimation(animDeep)
+            //multi.startAnimation(animDeep)
             startActivity(Intent(this,MainActivity::class.java))
             mediaPlayer.start()
             overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
         }
 
         vsAndroid.setOnClickListener {
-            vsAndroid.startAnimation(animDeep)
+           // vsAndroid.startAnimation(animDeep)
             mediaPlayer.start()
             startActivity(Intent(this,AndroidActivity::class.java))
             //overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
         }
         rate_us_btn.setOnClickListener {
-            rate_us_btn.startAnimation(animDeep)
+            //rate_us_btn.startAnimation(animDeep)
             mediaPlayer.start()
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageManager")))
         }
         owner_info.setOnClickListener {
-            owner_info.startAnimation(animDeep)
+            //owner_info.startAnimation(animDeep)
             mediaPlayer.start()
             startActivity(Intent(this,OwnerActivity::class.java))
         }

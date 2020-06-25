@@ -29,7 +29,7 @@ class AndroidActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_android)
         supportActionBar?.hide()
-        val animDeep = AnimationUtils.loadAnimation(applicationContext, R.anim.deep)
+       // val animDeep = AnimationUtils.loadAnimation(applicationContext, R.anim.deep)
         //sounds
         mediaPlayer = MediaPlayer.create(this, R.raw.button_pop)
         mediaPlayer.isLooping = false
@@ -52,7 +52,7 @@ class AndroidActivity : AppCompatActivity() {
                     board[position]="O"
                     Handler().postDelayed({
                         displayAndroidButton(position)
-                    },300)
+                    },600)
 
                 }
             }
@@ -71,7 +71,7 @@ class AndroidActivity : AppCompatActivity() {
                     board[position]="O"
                     Handler().postDelayed({
                         displayAndroidButton(position)
-                    },300)
+                    },600)
                 }
             }
             resultOperation(board)
@@ -89,7 +89,7 @@ class AndroidActivity : AppCompatActivity() {
                     board[position]="O"
                     Handler().postDelayed({
                         displayAndroidButton(position)
-                    },300)
+                    },600)
                 }
             }
             resultOperation(board)
@@ -107,7 +107,7 @@ class AndroidActivity : AppCompatActivity() {
                     board[position]="O"
                     Handler().postDelayed({
                         displayAndroidButton(position)
-                    },300)
+                    },600)
                 }
             }
             resultOperation(board)
@@ -125,7 +125,7 @@ class AndroidActivity : AppCompatActivity() {
                     board[position]="O"
                     Handler().postDelayed({
                         displayAndroidButton(position)
-                    },300)
+                    },600)
                 }
             }
             resultOperation(board)
@@ -143,7 +143,7 @@ class AndroidActivity : AppCompatActivity() {
                     board[position]="O"
                     Handler().postDelayed({
                         displayAndroidButton(position)
-                    },300)
+                    },600)
                 }
             }
             resultOperation(board)
@@ -161,7 +161,7 @@ class AndroidActivity : AppCompatActivity() {
                     board[position]="O"
                     Handler().postDelayed({
                         displayAndroidButton(position)
-                    },300)
+                    },600)
                 }
             }
             resultOperation(board)
@@ -179,7 +179,7 @@ class AndroidActivity : AppCompatActivity() {
                     board[position]="O"
                     Handler().postDelayed({
                         displayAndroidButton(position)
-                    },300)
+                    },600)
                 }
             }
             resultOperation(board)
@@ -195,19 +195,19 @@ class AndroidActivity : AppCompatActivity() {
                     board[position] = "O"
                     Handler().postDelayed({
                         displayAndroidButton(position)
-                    },300)
+                    },600)
                 }
             }
             resultOperation(board)
         }
         val buttonReset: Button = findViewById(R.id.reset1)
         buttonReset.setOnClickListener {
-            buttonReset.startAnimation(animDeep)
+            //buttonReset.startAnimation(animDeep)
             startActivity(Intent(this@AndroidActivity,AndroidActivity::class.java))
             mediaPlayer.start()
         }
         resetBoard1.setOnClickListener {
-            resetBoard1.startAnimation(animDeep)
+            //resetBoard1.startAnimation(animDeep)
             resetBoard()
             mediaPlayer.start()
         }

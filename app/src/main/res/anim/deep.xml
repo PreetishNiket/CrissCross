@@ -5,11 +5,11 @@
         android:toXScale="1.5"
         android:fromYScale="0.5"
         android:toYScale="1.5"
-        android:duration="3000"
+        android:duration="50"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:repeatMode="reverse"
-        android:repeatCount="2000">
+
+        android:repeatCount="500">
     </scale>
 
     <scale
@@ -17,10 +17,9 @@
         android:toXScale="0.5"
         android:fromYScale="1.5"
         android:toYScale="0.5"
-        android:duration="3000"
+        android:duration="50"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:repeatMode="reverse"
-        android:repeatCount="2000">
+        android:repeatCount="500">
     </scale>
 </set>
