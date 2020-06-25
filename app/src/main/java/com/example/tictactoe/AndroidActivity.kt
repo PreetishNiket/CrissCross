@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import com.muddzdev.styleabletoast.StyleableToast
 import kotlinx.android.synthetic.main.activity_android.*
 import java.text.FieldPosition
 import kotlin.random.Random
@@ -37,6 +39,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[0]=="")
             {
                 button0.text="X"
+                mp.start()
                 board[0]="X"
                 if (!isBoardFull(board)&&!result(board,"X"))
                 {
@@ -45,9 +48,126 @@ class AndroidActivity : AppCompatActivity() {
                     displayAndroidButton(position)
                 }
             }
-
+            resultOperation(board)
         }
-
+        button1.setOnClickListener {
+            if (board[1]=="")
+            {
+                button1.text="X"
+                mp.start()
+                board[1]="X"
+                if (!isBoardFull(board)&&!result(board,"X"))
+                {
+                    val position=getAndroidMove(board)
+                    board[position]="O"
+                    displayAndroidButton(position)
+                }
+            }
+            resultOperation(board)
+        }
+        button2.setOnClickListener {
+            if (board[2]=="")
+            {
+                button2.text="X"
+                mp.start()
+                board[2]="X"
+                if (!isBoardFull(board)&&!result(board,"X"))
+                {
+                    val position=getAndroidMove(board)
+                    board[position]="O"
+                    displayAndroidButton(position)
+                }
+            }
+            resultOperation(board)
+        }
+        button3.setOnClickListener {
+            if (board[3]=="")
+            {
+                button3.text="X"
+                mp.start()
+                board[3]="X"
+                if (!isBoardFull(board)&&!result(board,"X"))
+                {
+                    val position=getAndroidMove(board)
+                    board[position]="O"
+                    displayAndroidButton(position)
+                }
+            }
+            resultOperation(board)
+        }
+        button4.setOnClickListener {
+            if (board[4]=="")
+            {
+                button4.text="X"
+                mp.start()
+                board[4]="X"
+                if (!isBoardFull(board)&&!result(board,"X"))
+                {
+                    val position=getAndroidMove(board)
+                    board[position]="O"
+                    displayAndroidButton(position)
+                }
+            }
+            resultOperation(board)
+        }
+        button5.setOnClickListener {
+            if (board[5]=="")
+            {
+                button5.text="X"
+                mp.start()
+                board[5]="X"
+                if (!isBoardFull(board)&&!result(board,"X"))
+                {
+                    val position=getAndroidMove(board)
+                    board[position]="O"
+                    displayAndroidButton(position)
+                }
+            }
+            resultOperation(board)
+        }
+        button6.setOnClickListener {
+            if (board[6]=="")
+            {
+                button6.text="X"
+                mp.start()
+                board[6]="X"
+                if (!isBoardFull(board)&&!result(board,"X"))
+                {
+                    val position=getAndroidMove(board)
+                    board[position]="O"
+                    displayAndroidButton(position)
+                }
+            }
+            resultOperation(board)
+        }
+        button7.setOnClickListener {
+            if (board[7]=="")
+            {
+                button7.text="X"
+                mp.start()
+                board[7]="X"
+                if (!isBoardFull(board)&&!result(board,"X"))
+                {
+                    val position=getAndroidMove(board)
+                    board[position]="O"
+                    displayAndroidButton(position)
+                }
+            }
+            resultOperation(board)
+        }
+        button8.setOnClickListener {
+            if (board[8] == "") {
+                button8.text = "X"
+                mp.start()
+                board[8] = "X"
+                if (!isBoardFull(board) && !result(board, "X")) {
+                    val position = getAndroidMove(board)
+                    board[position] = "O"
+                    displayAndroidButton(position)
+                }
+            }
+            resultOperation(board)
+        }
         val buttonReset: Button = findViewById(R.id.reset1)
         buttonReset.setOnClickListener {
             mediaPlayer.start()
@@ -110,7 +230,7 @@ class AndroidActivity : AppCompatActivity() {
         }
 
     }
-    fun displayAndroidButton(position: Int)
+    private fun displayAndroidButton(position: Int)
     {
         //sound also
         when (position) {
@@ -144,10 +264,29 @@ class AndroidActivity : AppCompatActivity() {
         return true
     }
     private var playerPoints=0
-    fun resultOperation(board: ArrayList<String>){
+    private var androidPoints=0
+    private var drawPoints=0
+     private fun resultOperation(board: ArrayList<String>){
         if (result(board,"X"))
         {
-
+            playerPoints++
+            playerWins.text="Player Wins:${playerPoints}"
+            mp1.start()
+            StyleableToast.makeText(this,"YOU WON", Toast.LENGTH_SHORT,R.style.xWins).show()
+        }
+        if (result(board,"O"))
+        {
+            androidPoints++
+            androidWins.text="Android Wins:${androidPoints}"
+            mp1.start()
+            StyleableToast.makeText(this,"ANDROID WON", Toast.LENGTH_SHORT,R.style.OWins).show()
+        }
+        if (isBoardFull(board))
+        {
+            drawPoints++
+            draw.text="Draw Wins:${drawPoints}"
+            mp1.start()
+            StyleableToast.makeText(this,"DRAW", Toast.LENGTH_SHORT,R.style.Draw).show()
         }
     }
     //Check For Win
