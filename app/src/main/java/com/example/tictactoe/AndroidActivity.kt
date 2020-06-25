@@ -1,5 +1,6 @@
 package com.example.tictactoe
 
+import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +40,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[0]=="")
             {
                 button0.text="X"
+                button0.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[0]="X"
                 if (!isBoardFull(board)&&!result(board,"X"))
@@ -54,6 +56,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[1]=="")
             {
                 button1.text="X"
+                button1.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[1]="X"
                 if (!isBoardFull(board)&&!result(board,"X"))
@@ -69,6 +72,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[2]=="")
             {
                 button2.text="X"
+                    button2.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[2]="X"
                 if (!isBoardFull(board)&&!result(board,"X"))
@@ -84,6 +88,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[3]=="")
             {
                 button3.text="X"
+                button3.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[3]="X"
                 if (!isBoardFull(board)&&!result(board,"X"))
@@ -99,6 +104,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[4]=="")
             {
                 button4.text="X"
+                button4.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[4]="X"
                 if (!isBoardFull(board)&&!result(board,"X"))
@@ -114,6 +120,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[5]=="")
             {
                 button5.text="X"
+                button5.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[5]="X"
                 if (!isBoardFull(board)&&!result(board,"X"))
@@ -129,6 +136,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[6]=="")
             {
                 button6.text="X"
+                button6.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[6]="X"
                 if (!isBoardFull(board)&&!result(board,"X"))
@@ -144,6 +152,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[7]=="")
             {
                 button7.text="X"
+                button7.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[7]="X"
                 if (!isBoardFull(board)&&!result(board,"X"))
@@ -158,6 +167,7 @@ class AndroidActivity : AppCompatActivity() {
         button8.setOnClickListener {
             if (board[8] == "") {
                 button8.text = "X"
+                button8.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[8] = "X"
                 if (!isBoardFull(board) && !result(board, "X")) {
@@ -170,20 +180,37 @@ class AndroidActivity : AppCompatActivity() {
         }
         val buttonReset: Button = findViewById(R.id.reset1)
         buttonReset.setOnClickListener {
+            startActivity(Intent(this@AndroidActivity,AndroidActivity::class.java))
             mediaPlayer.start()
         }
         resetBoard1.setOnClickListener {
-            //resetBoard()
+            resetBoard()
 
             mediaPlayer.start()
         }
     }//onCreate
+    private fun resetBoard() {
+        for (i in 0 until board.size)
+        {
+            board[i]=""
+        }
+        button0.text=""
+        button1.text=""
+        button2.text=""
+        button3.text=""
+        button4.text=""
+        button5.text=""
+        button6.text=""
+        button7.text=""
+        button8.text=""
+    }
+
     private fun getAndroidMove(board: ArrayList<String>):Int{
 
         //Android Win
         for (i in 0 until board.size)
         {
-            var copy=getBoardCopy(board)
+            val copy=getBoardCopy(board)
             if (copy[i]==""){
                 copy[i]="O"
             }
@@ -194,7 +221,7 @@ class AndroidActivity : AppCompatActivity() {
         }
         //Player Win
         for (i in 0 until board.size){
-            var copy2=getBoardCopy(board)
+            val copy2=getBoardCopy(board)
             if (copy2[i]==""){
                 copy2[i]="X"
             }
@@ -214,7 +241,7 @@ class AndroidActivity : AppCompatActivity() {
     }
 
     private fun chooseRandomMove(board: ArrayList<String>, list: ArrayList<Int>):Int{
-        var possibleMove= arrayListOf<Int>()
+        val possibleMove= arrayListOf<Int>()
         for (i in list)
         {
             if (board[i]=="")
@@ -230,25 +257,61 @@ class AndroidActivity : AppCompatActivity() {
         }
 
     }
-    private fun displayAndroidButton(position: Int)
-    {
+
+    private fun displayAndroidButton(position: Int) {
         //sound also
         when (position) {
-            0 -> button0.text="O"
-            1 -> button1.text = "O"
-            2 -> button2.text = "O"
-            3 -> button3.text = "O"
-            4 -> button4.text = "O"
-            5 -> button5.text = "O"
-            6 -> button6.text = "O"
-            7 -> button7.text = "O"
-            8 -> button8.text = "O"
+            0 ->
+            {
+                button0.text="O"
+                button0.setTextColor(Color.parseColor("#fddb27ff"))
+            }
+            1 ->
+            {
+                button1.text = "O"
+                button1.setTextColor(Color.parseColor("#fddb27ff"))
+            }
+            2 ->{
+                button2.text = "O"
+                button2.setTextColor(Color.parseColor("#fddb27ff"))
+            }
+            3 ->
+            {
+                button3.text = "O"
+                button3.setTextColor(Color.parseColor("#fddb27ff"))
+            }
+            4 ->
+            {
+                button4.text = "O"
+                button4.setTextColor(Color.parseColor("#fddb27ff"))
+            }
+            5 ->
+            {
+                button5.text = "O"
+                button5.setTextColor(Color.parseColor("#fddb27ff"))
+            }
+            6 ->
+            {
+                button6.text = "O"
+                button6.setTextColor(Color.parseColor("#fddb27ff"))
+            }
+            7 ->
+            {
+                button7.text = "O"
+                button7.setTextColor(Color.parseColor("#fddb27ff"))
+            }
+            8 ->
+            {
+                button8.text = "O"
+                button8.setTextColor(Color.parseColor("#fddb27ff"))
+            }
         }
 
 
     }
+
      private fun getBoardCopy(board: ArrayList<String>): ArrayList<String> {
-        var bdCopy = arrayListOf<String>("", "", "", "", "", "", "", "", "")
+        val bdCopy = arrayListOf<String>("", "", "", "", "", "", "", "", "")
         for (i in 0 until board.size){
             bdCopy[i]=board[i]
         }
@@ -263,6 +326,7 @@ class AndroidActivity : AppCompatActivity() {
         }
         return true
     }
+
     private var playerPoints=0
     private var androidPoints=0
     private var drawPoints=0
@@ -321,5 +385,22 @@ class AndroidActivity : AppCompatActivity() {
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
+    private var doubleBackToExitPressedOnce = false
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            startActivity(Intent(this@AndroidActivity,HomeActivity::class.java))
+
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        StyleableToast.makeText(this,"Are You Sure You Want To Exit,Progress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        doubleBackToExitPressedOnce = false
     }
 }
