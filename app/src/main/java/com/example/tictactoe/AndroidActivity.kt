@@ -5,7 +5,9 @@ import android.graphics.Color
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -27,6 +29,7 @@ class AndroidActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_android)
         supportActionBar?.hide()
+        val animDeep = AnimationUtils.loadAnimation(applicationContext, R.anim.deep)
         //sounds
         mediaPlayer = MediaPlayer.create(this, R.raw.button_pop)
         mediaPlayer.isLooping = false
@@ -47,7 +50,10 @@ class AndroidActivity : AppCompatActivity() {
                 {
                     val position=getAndroidMove(board)
                     board[position]="O"
-                    displayAndroidButton(position)
+                    Handler().postDelayed({
+                        displayAndroidButton(position)
+                    },300)
+
                 }
             }
             resultOperation(board)
@@ -63,7 +69,9 @@ class AndroidActivity : AppCompatActivity() {
                 {
                     val position=getAndroidMove(board)
                     board[position]="O"
-                    displayAndroidButton(position)
+                    Handler().postDelayed({
+                        displayAndroidButton(position)
+                    },300)
                 }
             }
             resultOperation(board)
@@ -79,7 +87,9 @@ class AndroidActivity : AppCompatActivity() {
                 {
                     val position=getAndroidMove(board)
                     board[position]="O"
-                    displayAndroidButton(position)
+                    Handler().postDelayed({
+                        displayAndroidButton(position)
+                    },300)
                 }
             }
             resultOperation(board)
@@ -95,7 +105,9 @@ class AndroidActivity : AppCompatActivity() {
                 {
                     val position=getAndroidMove(board)
                     board[position]="O"
-                    displayAndroidButton(position)
+                    Handler().postDelayed({
+                        displayAndroidButton(position)
+                    },300)
                 }
             }
             resultOperation(board)
@@ -111,7 +123,9 @@ class AndroidActivity : AppCompatActivity() {
                 {
                     val position=getAndroidMove(board)
                     board[position]="O"
-                    displayAndroidButton(position)
+                    Handler().postDelayed({
+                        displayAndroidButton(position)
+                    },300)
                 }
             }
             resultOperation(board)
@@ -127,7 +141,9 @@ class AndroidActivity : AppCompatActivity() {
                 {
                     val position=getAndroidMove(board)
                     board[position]="O"
-                    displayAndroidButton(position)
+                    Handler().postDelayed({
+                        displayAndroidButton(position)
+                    },300)
                 }
             }
             resultOperation(board)
@@ -143,7 +159,9 @@ class AndroidActivity : AppCompatActivity() {
                 {
                     val position=getAndroidMove(board)
                     board[position]="O"
-                    displayAndroidButton(position)
+                    Handler().postDelayed({
+                        displayAndroidButton(position)
+                    },300)
                 }
             }
             resultOperation(board)
@@ -159,7 +177,9 @@ class AndroidActivity : AppCompatActivity() {
                 {
                     val position=getAndroidMove(board)
                     board[position]="O"
-                    displayAndroidButton(position)
+                    Handler().postDelayed({
+                        displayAndroidButton(position)
+                    },300)
                 }
             }
             resultOperation(board)
@@ -173,19 +193,22 @@ class AndroidActivity : AppCompatActivity() {
                 if (!isBoardFull(board) && !result(board, "X")) {
                     val position = getAndroidMove(board)
                     board[position] = "O"
-                    displayAndroidButton(position)
+                    Handler().postDelayed({
+                        displayAndroidButton(position)
+                    },300)
                 }
             }
             resultOperation(board)
         }
         val buttonReset: Button = findViewById(R.id.reset1)
         buttonReset.setOnClickListener {
+            buttonReset.startAnimation(animDeep)
             startActivity(Intent(this@AndroidActivity,AndroidActivity::class.java))
             mediaPlayer.start()
         }
         resetBoard1.setOnClickListener {
+            resetBoard1.startAnimation(animDeep)
             resetBoard()
-
             mediaPlayer.start()
         }
     }//onCreate
@@ -337,6 +360,7 @@ class AndroidActivity : AppCompatActivity() {
             playerWins.text="Player Wins:${playerPoints}"
             mp1.start()
             StyleableToast.makeText(this,"YOU WON", Toast.LENGTH_SHORT,R.style.xWins).show()
+            resetBoard()
         }
         if (result(board,"O"))
         {
@@ -344,6 +368,7 @@ class AndroidActivity : AppCompatActivity() {
             androidWins.text="Android Wins:${androidPoints}"
             mp1.start()
             StyleableToast.makeText(this,"ANDROID WON", Toast.LENGTH_SHORT,R.style.OWins).show()
+            resetBoard()
         }
         if (isBoardFull(board))
         {
@@ -351,6 +376,7 @@ class AndroidActivity : AppCompatActivity() {
             draw.text="Draw Wins:${drawPoints}"
             mp1.start()
             StyleableToast.makeText(this,"DRAW", Toast.LENGTH_SHORT,R.style.Draw).show()
+            resetBoard()
         }
     }
     //Check For Win
@@ -392,11 +418,15 @@ class AndroidActivity : AppCompatActivity() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
             startActivity(Intent(this@AndroidActivity,HomeActivity::class.java))
+            finish()
 
         }
+        if (!doubleBackToExitPressedOnce)
+        {
+            StyleableToast.makeText(this,"Are You Sure You Want To Exit,Progress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
+            doubleBackToExitPressedOnce = true
+        }
 
-        this.doubleBackToExitPressedOnce = true
-        StyleableToast.makeText(this,"Are You Sure You Want To Exit,Progress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
     }
 
     override fun onResume() {

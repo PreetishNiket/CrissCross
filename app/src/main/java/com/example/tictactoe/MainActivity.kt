@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+        val animDeep = AnimationUtils.loadAnimation(applicationContext, R.anim.deep)
 
         mediaPlayer= MediaPlayer.create(this,R.raw.button_pop)
         mediaPlayer.isLooping=false
@@ -50,12 +52,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         val buttonReset: Button = findViewById(R.id.reset)
         buttonReset.setOnClickListener {
-
+            buttonReset.startAnimation(animDeep)
             resetGame()
             mediaPlayer.start()
         }
 
         resetBoard.setOnClickListener {
+            resetBoard.startAnimation(animDeep)
             resetBoard()
            //alertDialog
             mediaPlayer.start()
