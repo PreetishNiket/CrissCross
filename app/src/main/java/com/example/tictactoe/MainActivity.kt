@@ -192,7 +192,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         this.doubleBackToExitPressedOnce = true
-        StyleableToast.makeText(this,"Are You Sure You Want To Exit,Progress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
+        StyleableToast.makeText(this,"Are You Sure You Want To Exit\nProgress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
     }
 
     override fun onResume() {

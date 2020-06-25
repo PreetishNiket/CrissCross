@@ -357,7 +357,7 @@ class AndroidActivity : AppCompatActivity() {
         if (result(board,"X"))
         {
             playerPoints++
-            playerWins.text="Player Wins:${playerPoints}"
+            playerWins.text="Player Wins:\n${playerPoints}"
             mp1.start()
             StyleableToast.makeText(this,"YOU WON", Toast.LENGTH_SHORT,R.style.xWins).show()
             resetBoard()
@@ -365,7 +365,7 @@ class AndroidActivity : AppCompatActivity() {
         if (result(board,"O"))
         {
             androidPoints++
-            androidWins.text="Android Wins:${androidPoints}"
+            androidWins.text="Android Wins:\n${androidPoints}"
             mp1.start()
             StyleableToast.makeText(this,"ANDROID WON", Toast.LENGTH_SHORT,R.style.OWins).show()
             resetBoard()
@@ -423,7 +423,7 @@ class AndroidActivity : AppCompatActivity() {
         }
         if (!doubleBackToExitPressedOnce)
         {
-            StyleableToast.makeText(this,"Are You Sure You Want To Exit,Progress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
+            StyleableToast.makeText(this,"Are You Sure You Want To Exit\nProgress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
             doubleBackToExitPressedOnce = true
         }
 

@@ -14,7 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         supportActionBar?.hide()
 
-        val animation= AnimationUtils.loadAnimation(this,R.anim.zoomicon)
+        val animation= AnimationUtils.loadAnimation(this,R.anim.rotate)
         imageView.startAnimation(animation)
         val animation2= AnimationUtils.loadAnimation(this,R.anim.fade)
         imageView2.startAnimation(animation2)
