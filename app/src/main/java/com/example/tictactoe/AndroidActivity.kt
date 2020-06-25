@@ -6,19 +6,15 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
-import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import com.muddzdev.styleabletoast.StyleableToast
 import kotlinx.android.synthetic.main.activity_android.*
-import java.text.FieldPosition
 import kotlin.random.Random
 
 class AndroidActivity : AppCompatActivity() {
     //private var buttons = arrayOfNulls<Button>(3)
-    var board = arrayListOf<String>("", "", "", "", "", "", "", "", "")
+    private var board = arrayListOf("", "", "", "", "", "", "", "", "")
 
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var mp: MediaPlayer
@@ -80,6 +76,7 @@ class AndroidActivity : AppCompatActivity() {
             if (board[2]=="")
             {
                 button2.text="X"
+
                     button2.setTextColor(Color.parseColor("#ff0015"))
                 mp.start()
                 board[2]="X"
@@ -334,7 +331,7 @@ class AndroidActivity : AppCompatActivity() {
     }
 
      private fun getBoardCopy(board: ArrayList<String>): ArrayList<String> {
-        val bdCopy = arrayListOf<String>("", "", "", "", "", "", "", "", "")
+        val bdCopy = arrayListOf("", "", "", "", "", "", "", "", "")
         for (i in 0 until board.size){
             bdCopy[i]=board[i]
         }
@@ -415,22 +412,24 @@ class AndroidActivity : AppCompatActivity() {
 
     private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
+        StyleableToast.makeText(this,"Are You Sure You Want To Exit\nProgress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
+
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
             startActivity(Intent(this@AndroidActivity,HomeActivity::class.java))
             finish()
 
         }
-        if (!doubleBackToExitPressedOnce)
-        {
-            StyleableToast.makeText(this,"Are You Sure You Want To Exit\nProgress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
             doubleBackToExitPressedOnce = true
-        }
 
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onRestart() {
+        super.onRestart()
         doubleBackToExitPressedOnce = false
     }
+//    override fun onResume() {
+//        super.onResume()
+//        doubleBackToExitPressedOnce = false
+//    }
 }
