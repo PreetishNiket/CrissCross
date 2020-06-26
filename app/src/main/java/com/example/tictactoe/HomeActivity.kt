@@ -1,20 +1,28 @@
 package com.example.tictactoe
 
+import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telephony.SmsManager
+
 import android.view.LayoutInflater
-import android.view.animation.AnimationUtils
+
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+
 import com.muddzdev.styleabletoast.StyleableToast
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.custom_layout.view.*
 import kotlinx.android.synthetic.main.rate_custom_layout.view.*
 
-class HomeActivity : AppCompatActivity() {
+
+class HomeActivity : AppCompatActivity(){
     private lateinit var mediaPlayer: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,15 +48,47 @@ class HomeActivity : AppCompatActivity() {
         }
         rate_us_btn.setOnClickListener {
             //rate_us_btn.startAnimation(animDeep)
+//            val number="+919599478721"
+//            val num= String.format("smsto:",number)
+
+            Toast.makeText(this,"Please Grant Sms Permission Manually in App info,If you want your feedback to reach me",Toast.LENGTH_LONG).show()
             mediaPlayer.start()
             val dialog= AlertDialog.Builder(this)
             val dialogView= LayoutInflater.from(this).inflate(R.layout.rate_custom_layout,null)
             dialog.setView(dialogView)
             val alertDialog=dialog.show()
+            dialogView.ratingBar.rating=load()
             dialogView.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+                save(rating)
+                alertDialog.dismiss()
+
+                val perms= arrayOf(Manifest.permission.SEND_SMS)
+                if (ContextCompat.checkSelfPermission(baseContext,
+                        Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED)
+                {
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                            Manifest.permission.SEND_SMS))
+                    {
+                        ActivityCompat.requestPermissions(this,
+                            perms, 1);
+                    }
+                    else
+                    {
+                        ActivityCompat.requestPermissions(this,
+                            perms, 1);
+                    }
+
+                }
+                else{
+                    val smsManager=SmsManager.getDefault()
+                    smsManager.sendTextMessage("+919599478721",null,"Rating:$rating",null,null)
+                }
 
             }
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageManager")))
+            alertDialog.show()
+
+
+           // startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageManager")))
 
         }
         owner_info.setOnClickListener {
@@ -56,6 +96,44 @@ class HomeActivity : AppCompatActivity() {
             mediaPlayer.start()
             startActivity(Intent(this,OwnerActivity::class.java))
         }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when(requestCode)
+        {
+            1->{
+                if (grantResults.isNotEmpty() &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                {
+                    if (ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.SEND_SMS) ==  PackageManager.PERMISSION_GRANTED)
+                    {
+                        Toast.makeText(this, "Permission granted,Now Rate us", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(this, "No Permission granted", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+    private fun save(f:Float)
+    {
+        val pref=getSharedPreferences("save", Context.MODE_PRIVATE)
+        val editor=pref.edit()
+        editor.putFloat("rating",f)
+        editor.apply()
+    }
+    private fun load(): Float {
+        val sharedPref=getSharedPreferences("save", Context.MODE_PRIVATE)
+        val f=sharedPref.getFloat("rating",0F)
+        return f
     }
 
     private var doubleBackToExitPressedOnce = false

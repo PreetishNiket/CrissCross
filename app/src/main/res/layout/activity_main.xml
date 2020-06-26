@@ -65,11 +65,10 @@
         android:layout_height="118dp"
         android:contentDescription="@string/notUsed"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button12"
+        app:layout_constraintStart_toEndOf="@+id/button11"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32"
+        app:layout_constraintVertical_bias="0.321"
         app:srcCompat="@drawable/pencil" />
 
     <ImageView
@@ -78,9 +77,8 @@
         android:layout_height="118dp"
         android:contentDescription="@string/notUsed"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.336"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button11"
+        app:layout_constraintStart_toEndOf="@+id/button10"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32"
         app:srcCompat="@drawable/pencil" />
@@ -159,11 +157,10 @@
         android:layout_height="118dp"
         android:contentDescription="@string/notUsed"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.696"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button02"
+        app:layout_constraintStart_toEndOf="@+id/button01"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/pencil" />
 
     <ImageView
@@ -172,9 +169,9 @@
         android:layout_height="118dp"
         android:contentDescription="@string/notUsed"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.696"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button22"
+        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintStart_toEndOf="@+id/button21"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.549"
         app:srcCompat="@drawable/pencil106" />
@@ -200,9 +197,8 @@
         android:layout_height="118dp"
         android:contentDescription="@string/notUsed"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.339"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button21"
+        app:layout_constraintStart_toEndOf="@+id/button20"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.549"
         app:srcCompat="@drawable/pencil106" />
@@ -213,11 +209,10 @@
         android:layout_height="118dp"
         android:contentDescription="@string/notUsed"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.336"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button01"
+        app:layout_constraintStart_toEndOf="@+id/button00"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083"
+        app:layout_constraintVertical_bias="0.084"
         app:srcCompat="@drawable/pencil" />
 
     <ImageView
@@ -257,55 +252,55 @@
         android:textSize="43sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.097" />
 
     <Button
         android:id="@+id/button01"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="104dp"
         android:layout_height="113dp"
-        android:textSize="43sp"
-        android:fontFamily="@font/abril_fatface"
         android:background="@drawable/zeroone"
+        android:fontFamily="@font/abril_fatface"
+        android:textSize="43sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.082" />
 
     <Button
         android:id="@+id/button02"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="103dp"
         android:layout_height="99dp"
-        android:textSize="43sp"
         android:background="@drawable/zerotwo"
         android:fontFamily="@font/abril_fatface"
-        style="@style/Widget.AppCompat.Button.Borderless"
+        android:textSize="43sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.099" />
 
     <Button
         android:id="@+id/button10"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="104dp"
         android:layout_height="97dp"
-        android:textSize="43sp"
         android:background="@drawable/onezero"
         android:fontFamily="@font/abril_fatface"
+        android:textSize="43sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.317" />
 
     <Button
         android:id="@+id/button11"
@@ -340,17 +335,17 @@
     <Button
         android:id="@+id/button12"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="107dp"
-        android:layout_height="112dp"
+        android:layout_width="105dp"
+        android:layout_height="111dp"
         android:background="@drawable/onetwo"
         android:fontFamily="@font/abril_fatface"
         android:textSize="43sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintVertical_bias="0.319" />
 
     <Button
         android:id="@+id/button21"
@@ -371,13 +366,13 @@
         android:id="@+id/button22"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="103dp"
-        android:layout_height="106dp"
-        android:textSize="43sp"
-        android:fontFamily="@font/abril_fatface"
+        android:layout_height="109dp"
         android:background="@drawable/twotwo"
+        android:fontFamily="@font/abril_fatface"
+        android:textSize="43sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintHorizontal_bias="0.974"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.548" />

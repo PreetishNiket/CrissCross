@@ -22,7 +22,7 @@
         android:layout_width="67dp"
         android:layout_height="61dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:srcCompat="@android:drawable/ic_menu_info_details" />
 
     <TextView
