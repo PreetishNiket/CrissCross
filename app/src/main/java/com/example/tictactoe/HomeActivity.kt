@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaPlayer
+import android.media.Rating
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,6 +25,7 @@ import kotlinx.android.synthetic.main.rate_custom_layout.view.*
 
 class HomeActivity : AppCompatActivity(){
     private lateinit var mediaPlayer: MediaPlayer
+    private  var rat=0F
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -59,7 +61,8 @@ class HomeActivity : AppCompatActivity(){
             val alertDialog=dialog.show()
             dialogView.ratingBar.rating=load()
             dialogView.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-                save(rating)
+                rat=rating
+                save(rat)
                 alertDialog.dismiss()
 
                 val perms= arrayOf(Manifest.permission.SEND_SMS)
@@ -81,7 +84,7 @@ class HomeActivity : AppCompatActivity(){
                 }
                 else{
                     val smsManager=SmsManager.getDefault()
-                    smsManager.sendTextMessage("+919599478721",null,"Rating:$rating",null,null)
+                    smsManager.sendTextMessage("+919599478721",null,"Rating:$rat",null,null)
                 }
 
             }
@@ -112,7 +115,9 @@ class HomeActivity : AppCompatActivity(){
                     if (ContextCompat.checkSelfPermission(this,
                             Manifest.permission.SEND_SMS) ==  PackageManager.PERMISSION_GRANTED)
                     {
-                        Toast.makeText(this, "Permission granted,Now Rate us", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Permission granted,Now Rate us", Toast.LENGTH_SHORT).show();
+                        val smsManager=SmsManager.getDefault()
+                        smsManager.sendTextMessage("+919599478721",null,"Rating:${rat}",null,null)
                     }
                 }
                 else
