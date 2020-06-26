@@ -6,10 +6,13 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.muddzdev.styleabletoast.StyleableToast
 import kotlinx.android.synthetic.main.activity_android.*
+import kotlinx.android.synthetic.main.custom_layout.view.*
 import kotlin.random.Random
 
 class AndroidActivity : AppCompatActivity() {
@@ -200,7 +203,11 @@ class AndroidActivity : AppCompatActivity() {
         val buttonReset: Button = findViewById(R.id.reset1)
         buttonReset.setOnClickListener {
             //buttonReset.startAnimation(animDeep)
-            startActivity(Intent(this@AndroidActivity,AndroidActivity::class.java))
+            resetBoard()
+            playerWins.text="Player Wins:"
+            androidWins.text="Android Wins:"
+            draw.text="Draw:"
+           // startActivity(Intent(this@AndroidActivity,AndroidActivity::class.java))
             mediaPlayer.start()
         }
         resetBoard1.setOnClickListener {
@@ -354,7 +361,7 @@ class AndroidActivity : AppCompatActivity() {
         if (result(board,"X"))
         {
             playerPoints++
-            playerWins.text="Player Wins:\n${playerPoints}"
+            playerWins.text="Player Wins: ${playerPoints}"
             mp1.start()
             StyleableToast.makeText(this,"YOU WON", Toast.LENGTH_SHORT,R.style.xWins).show()
             resetBoard()
@@ -362,7 +369,7 @@ class AndroidActivity : AppCompatActivity() {
         if (result(board,"O"))
         {
             androidPoints++
-            androidWins.text="Android Wins:\n${androidPoints}"
+            androidWins.text="Android Wins: ${androidPoints}"
             mp1.start()
             StyleableToast.makeText(this,"ANDROID WON", Toast.LENGTH_SHORT,R.style.OWins).show()
             resetBoard()
@@ -370,7 +377,7 @@ class AndroidActivity : AppCompatActivity() {
         if (isBoardFull(board))
         {
             drawPoints++
-            draw.text="Draw Wins:${drawPoints}"
+            draw.text="Draw Wins: ${drawPoints}"
             mp1.start()
             StyleableToast.makeText(this,"DRAW", Toast.LENGTH_SHORT,R.style.Draw).show()
             resetBoard()
@@ -409,27 +416,18 @@ class AndroidActivity : AppCompatActivity() {
         super.finish()
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
-
-    private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
-        StyleableToast.makeText(this,"Are You Sure You Want To Exit\nProgress Will Get Lost", Toast.LENGTH_LONG,R.style.exit).show()
-
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
-            startActivity(Intent(this@AndroidActivity,HomeActivity::class.java))
+        val dialog= AlertDialog.Builder(this)
+        val dialogView= LayoutInflater.from(this).inflate(R.layout.custom_layout,null)
+        dialog.setView(dialogView)
+        val alertDialog=dialog.show()
+        dialogView.yes.setOnClickListener {
+            alertDialog.dismiss()
             finish()
 
         }
-            doubleBackToExitPressedOnce = true
-
+        dialogView.no.setOnClickListener {
+            alertDialog.dismiss()
+        }
     }
-
-    override fun onRestart() {
-        super.onRestart()
-        doubleBackToExitPressedOnce = false
-    }
-//    override fun onResume() {
-//        super.onResume()
-//        doubleBackToExitPressedOnce = false
-//    }
 }

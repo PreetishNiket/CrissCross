@@ -5,10 +5,15 @@ import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.muddzdev.styleabletoast.StyleableToast
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.custom_layout.view.*
+import kotlinx.android.synthetic.main.rate_custom_layout.view.*
+
 class HomeActivity : AppCompatActivity() {
     private lateinit var mediaPlayer: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +41,13 @@ class HomeActivity : AppCompatActivity() {
         rate_us_btn.setOnClickListener {
             //rate_us_btn.startAnimation(animDeep)
             mediaPlayer.start()
+            val dialog= AlertDialog.Builder(this)
+            val dialogView= LayoutInflater.from(this).inflate(R.layout.rate_custom_layout,null)
+            dialog.setView(dialogView)
+            val alertDialog=dialog.show()
+            dialogView.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+
+            }
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageManager")))
 
         }

@@ -42,6 +42,11 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="are_you_sure_you_want_to_exit">Are You Sure You Want To Exit?</string>
+    <string name="progress_will_get_lost_for_this_session">Progress Will Get Lost For This Session</string>
+    <string name="no">NO</string>
+    <string name="yes">Yes</string>
+    <string name="thank_you_for_feedback">Thank You For FeedBack</string>
 </resources>
 
 

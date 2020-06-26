@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewIcon"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/are_you_sure_you_want_to_exit"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/imageViewIcon"
+        android:layout_width="67dp"
+        android:layout_height="61dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+    <TextView
+        android:id="@+id/textInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/progress_will_get_lost_for_this_session"
+        android:textSize="12sp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"/>
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_below="@+id/textInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/no"
+            android:layout_weight="1"
+            android:text="@string/no"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="5dp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"/>
+        <Button
+            android:id="@+id/yes"
+            android:layout_weight="1"
+            android:text="@string/yes"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"/>
+
+    </LinearLayout>
+</RelativeLayout>
