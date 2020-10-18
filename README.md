@@ -1,5 +1,5 @@
 # TicTacToeAndroidApp
-TicTacToe Android App with Vs Android Feature
+TicTacToe Android App (You Vs Android) Feature
 
 Interactive UI and rating through sms feature.
 
