@@ -16,10 +16,10 @@ class OwnerActivity : AppCompatActivity() {
         val animation2= AnimationUtils.loadAnimation(this,R.anim.fade)
             textView4.startAnimation(animation2)
 
-        mediaPlayer= MediaPlayer.create(this,R.raw.coffin)
-        mediaPlayer.setVolume(10F,10F)
-        mediaPlayer.isLooping=false
-        mediaPlayer.start()
+//        mediaPlayer= MediaPlayer.create(this,R.raw.coffin)
+//        mediaPlayer.setVolume(10F,10F)
+//        mediaPlayer.isLooping=false
+//        mediaPlayer.start()
     }
 
     override fun onDestroy() {
