@@ -52,7 +52,7 @@ class HomeActivity : AppCompatActivity() {
 
         online_btn.setOnClickListener {
             mediaPlayer.start()
-            startActivity(Intent(this, OnlineActivity::class.java))
+            startActivity(Intent(this, ChooseCodeActivity::class.java))
         }
 
         rate_us_btn.setOnClickListener {

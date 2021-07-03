@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
+        <activity android:name=".ChooseCodeActivity"></activity>
         <activity
             android:name=".SplashScreenActivity"
             android:screenOrientation="portrait">
@@ -22,8 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OnlineActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".OnlineActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AndroidActivity"
             android:screenOrientation="portrait" />
