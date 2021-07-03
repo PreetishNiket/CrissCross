@@ -49,6 +49,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, AndroidActivity::class.java))
 
         }
+
+        online_btn.setOnClickListener {
+            mediaPlayer.start()
+            startActivity(Intent(this, OnlineActivity::class.java))
+        }
+
         rate_us_btn.setOnClickListener {
             Toast.makeText(
                 this,
@@ -95,10 +101,6 @@ class HomeActivity : AppCompatActivity() {
 
             }
             alertDialog.show()
-        }
-        owner_info.setOnClickListener {
-            mediaPlayer.start()
-            startActivity(Intent(this, OwnerActivity::class.java))
         }
     }
 
