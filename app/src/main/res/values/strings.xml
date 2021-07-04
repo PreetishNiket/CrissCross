@@ -48,6 +48,9 @@
     <string name="yes">Yes</string>
     <string name="thank_you_for_feedback">Thank You For FeedBack</string>
     <string name="online_mode">Online Mode</string>
+    <string name="player_1">Player 1:</string>
+    <string name="turn_player">Turn : Player</string>
+    <string name="player_2">Player 2:</string>
 </resources>
 
 

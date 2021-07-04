@@ -97,7 +97,6 @@ class ChooseCodeActivity : AppCompatActivity() {
                 StyleableToast.makeText(baseContext,"Enter Code Properly",R.style.exit).show()
             }
         }
-
     }
     private fun matched() {
         startActivity(Intent(this, OnlineActivity::class.java));
