@@ -5,19 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaPlayer
-import android.media.Rating
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telephony.SmsManager
-
 import android.view.LayoutInflater
-
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-
 import com.muddzdev.styleabletoast.StyleableToast
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.rate_custom_layout.view.*
@@ -67,7 +62,7 @@ class HomeActivity : AppCompatActivity() {
             dialog.setView(dialogView)
             val alertDialog = dialog.show()
             dialogView.ratingBar.rating = load()
-            dialogView.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            dialogView.ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
                 rat = rating
                 save(rat)
                 alertDialog.dismiss()
@@ -86,12 +81,12 @@ class HomeActivity : AppCompatActivity() {
                         ActivityCompat.requestPermissions(
                             this,
                             perms, 1
-                        );
+                        )
                     } else {
                         ActivityCompat.requestPermissions(
                             this,
                             perms, 1
-                        );
+                        )
                     }
 
                 } else {
@@ -130,7 +125,7 @@ class HomeActivity : AppCompatActivity() {
                         )
                     }
                 } else {
-                    Toast.makeText(this, "No Permission granted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "No Permission granted", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -146,8 +141,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun load(): Float {
         val sharedPref = getSharedPreferences("save", Context.MODE_PRIVATE)
-        val f = sharedPref.getFloat("rating", 0F)
-        return f
+        return sharedPref.getFloat("rating", 0F)
     }
 
     private var doubleBackToExitPressedOnce = false
@@ -158,13 +152,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         this.doubleBackToExitPressedOnce = true
-        // Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
-        StyleableToast.makeText(
-            this,
-            "Please click BACK again to exit",
-            Toast.LENGTH_SHORT,
-            R.style.exit
-        ).show()
+        StyleableToast.makeText(this,"Please click BACK again to exit", Toast.LENGTH_SHORT,R.style.exit).show()
     }
 
     override fun onResume() {

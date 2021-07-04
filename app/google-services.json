@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "388822184958",
+    "project_id": "crisscross-6452a",
+    "storage_bucket": "crisscross-6452a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388822184958:android:2ac10fd1211f01a94206af",
+        "android_client_info": {
+          "package_name": "com.example.tictactoe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388822184958-mimaohretqa1oa6ivqap2shb8rk3r34o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tictactoe",
+            "certificate_hash": "65649f6ede78ab7d76017faf27cbf8edf7fe4b34"
+          }
+        },
+        {
+          "client_id": "388822184958-jukkn9uark719i61urjpltnmq10dj106.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWU7DnjnJT7vDiAjrc7lmZvEKwXSrDCSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388822184958-jukkn9uark719i61urjpltnmq10dj106.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
