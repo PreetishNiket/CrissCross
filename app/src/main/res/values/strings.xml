@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TicTacToe</string>
+    <string name="app_name">CrissCross</string>
     <string name="x_points_0">X Points: 0</string>
     <string name="o_points_0">O Points: 0</string>
     <string name="reset">reset</string>

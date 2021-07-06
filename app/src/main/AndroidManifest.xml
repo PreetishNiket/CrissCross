@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".ChooseCodeActivity"></activity>
+        <activity android:name=".ChooseCodeActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SplashScreenActivity"
             android:screenOrientation="portrait">

@@ -151,7 +151,7 @@ class OnlineActivity : AppCompatActivity() {
             buttonDisable()
             audio.start()
             disableReset()
-            Handler(Looper.myLooper()!!).postDelayed({ audio.release() }, 4000)
+            Handler(Looper.myLooper()!!).postDelayed({ audio.release() }, 1000)
             val build = AlertDialog.Builder(this)
             build.setTitle("Game Over")
             build.setMessage("Player 1 Wins!!" + "\n\n" + "Do you want to play again")
@@ -165,7 +165,7 @@ class OnlineActivity : AppCompatActivity() {
                 exitProcess(1)
 
             }
-            Handler(Looper.myLooper()!!).postDelayed({ build.show() }, 2000)
+            Handler(Looper.myLooper()!!).postDelayed({ build.show() }, 1000)
             return 1
 
 
@@ -186,7 +186,7 @@ class OnlineActivity : AppCompatActivity() {
             audio.start()
             buttonDisable()
             disableReset()
-            Handler(Looper.myLooper()!!).postDelayed({ audio.release() }, 4000)
+            Handler(Looper.myLooper()!!).postDelayed({ audio.release() }, 1000)
             val build = AlertDialog.Builder(this)
             build.setTitle("Game Over")
             build.setMessage("Player 2 Wins!!" + "\n\n" + "Do you want to play again")
@@ -199,7 +199,7 @@ class OnlineActivity : AppCompatActivity() {
                 removeCode()
                 exitProcess(1)
             }
-            Handler(Looper.myLooper()!!).postDelayed({ build.show() }, 2000)
+            Handler(Looper.myLooper()!!).postDelayed({ build.show() }, 1000)
             return 1
         } else if (emptyCells.contains(1) && emptyCells.contains(2) && emptyCells.contains(3) && emptyCells.contains(
                 4
@@ -288,7 +288,7 @@ class OnlineActivity : AppCompatActivity() {
 
     private fun disableReset() {
         reset.isEnabled = false
-        Handler(Looper.myLooper()!!).postDelayed({ reset.isEnabled = true }, 2200)
+        Handler(Looper.myLooper()!!).postDelayed({ reset.isEnabled = true }, 1100)
     }
 
 //    fun buttonCellDisable() {
