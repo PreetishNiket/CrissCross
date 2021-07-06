@@ -9,8 +9,6 @@ The project is divided into three modules :-
   <li>Multiplayer Mode</li>
 </ul>
 
-This is the main dashboard of the app; this activity allows user to select many options as buttons. Using media player, I have added button pop sound when the button clicked. I have also added click back twice to exit the in this activity using function onBackPressed ().
-
 <p>
   <img src="https://github.com/PreetishNiket/CrissCross/blob/master/app/sampledata/ss1.png" width="250" />
   <img src="https://github.com/PreetishNiket/CrissCross/blob/master/app/sampledata/ss2.png" width="250" /> 
